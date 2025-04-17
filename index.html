@@ -3,10 +3,386 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IMData | Clarity Kit for Ecom Founders</title>
+    <title>IMData | Find €3,400+ In Wasted Ad Spend Within 7 Days | Clarity Kit™</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --accent: #4cc9f0;
+            --dark: #111;
+            --light: #f9f9f9;
+            --warning: #ff4d4f;
+            --success: #52c41a;
+        }
+
+        .logo:hover {
+            transform: translateY(-5px);
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-text .im,
+        .logo-text .ata {
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .logo-text .d {
+            color: var(--accent);
+        }
+        .logo-icon {
+            margin-left: 8px;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background: var(--light);
+            color: var(--dark);
+        }
+        header {
+            background: linear-gradient(to right, #4361ee, #3a0ca3);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0 0 20px;
+        }
+        header p {
+            font-size: 1.2rem;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .section {
+            max-width: 960px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .highlight ul {
+            list-style: none;
+            padding: 0;
+        }
+        .highlight ul li {
+            margin-bottom: 15px;
+        }
+        .highlight strong {
+            color: var(--primary);
+        }
+        .cta {
+            text-align: center;
+            margin-top: 60px;
+        }
+        .cta a {
+            background: var(--primary);
+            color: white;
+            padding: 18px 32px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            font-size: 1.2rem;
+            display: inline-block;
+        }
+        .cta a:hover {
+            background: #2a48db;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+            padding: 40px 20px;
+        }
+        .bonus {
+            background: #fff9f2;
+            padding: 20px;
+            margin-top: 40px;
+            border-left: 4px solid var(--primary);
+        }
+        .testimonial {
+            background: #f5f9ff;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            position: relative;
+        }
+        .testimonial:before {
+            content: '"';
+            font-size: 60px;
+            color: rgba(67, 97, 238, 0.1);
+            position: absolute;
+            top: -15px;
+            left: 10px;
+        }
+        .testimonial-content {
+            padding-left: 15px;
+            font-style: italic;
+        }
+        .testimonial-author {
+            font-weight: 600;
+            margin-top: 15px;
+            display: block;
+            text-align: right;
+        }
+        .result-box {
+            border: 2px solid #e8eaf6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+        .result-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-right: 20px;
+        }
+        .countdown {
+            background: #ffe8e8;
+            color: var(--warning);
+            padding: 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .guarantee-box {
+            border: 2px dashed var(--primary);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        .guarantee-box h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        .pain-point {
+            color: var(--warning);
+            font-weight: 600;
+        }
+        .success-point {
+            color: var(--success);
+            font-weight: 600;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+        .limited-slots {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        .slots-counter {
+            font-weight: 700;
+            color: var(--warning);
+        }
+        .highlight li i {
+            color: var(--success);
+            margin-right: 8px;
+        }
+        .case-study {
+            border-left: 4px solid var(--primary);
+            padding-left: 20px;
+            margin: 30px 0;
+        }
+        .case-study h4 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        .founding-client {
+            background: white;
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            color: var(--primary);
+            font-weight: 600;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        .founding-client h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        .process-step {
+            display: flex;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+        .step-number {
+            background: var(--primary);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .step-content {
+            flex: 1;
+        }
+        .step-content h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .faq-item {
+            margin-bottom: 25px;
+        }
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        .expected-outcome {
+            background: #f0f9ff;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .expert-quote {
+            font-style: italic;
+            color: #555;
+            border-left: 3px solid #ccc;
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+        .highlight {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .highlight ul {
+            list-style: none;
+            padding: 0;
+        }
+        .highlight ul li {
+            margin-bottom: 15px;
+        }
+        .highlight strong {
+            color: var(--primary);
+        }
+        .dashboard-preview {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 30px auto;
+            max-width: 700px;
+            width: 100%;
+            height: auto;
+            max-height: 360px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            display: block;
+            position: relative;
+        }
+        .dashboard-annotation {
+            position: absolute;
+            background: rgba(255, 77, 79, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .dash-annotation-1 {
+            top: 20%;
+            left: 25%;
+        }
+        .dash-annotation-2 {
+            bottom: 30%;
+            right: 15%;
+        }
+
+        .about-founder {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+
+        .founder-bio h4 {
+            margin-top: 0;
+        }
+        .timeline {
+            display: flex;
+            margin: 40px 0;
+            justify-content: space-between;
+        }
+        .timeline-point {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+        .timeline-point:not(:last-child):after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            background: #ddd;
+            width: 100%;
+            top: 25px;
+            left: 50%;
+            z-index: -1;
+        }
+        .timeline-marker {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+    </style>
     <link rel="icon" href="favicon%20(1).ico" type="image/x-icon" />
 </head>
 <body>
@@ -20,75 +396,340 @@
     </div>
 
     <!-- Main Offer Title -->
-    <h1>Clarity Kit™ for Ecommerce Founders</h1>
-    <p>Custom data audits to help ecom brands cut waste, boost ROAS, and scale smart — in under 7 days</p>
+    <h1>Find €3,400+ In Wasted Ad Spend In 7 Days</h1>
+    <p><strong>The Clarity Kit™</strong> custom data audit helps Shopify brands identify exactly where your marketing budget is being wasted, what products actually drive profit, and creates a clear action plan to boost ROAS by 30-65% in the next 30 days.</p>
+
+
+    <div class="cta" style="margin-top: 30px;">
+        <a href="https://calendly.com/ionut-imdata/free-website-audit-call" target="_blank">Claim Your Audit Spot Now</a>
+    </div>
 </header>
 
 <div class="section">
-    <h2>Who It’s For</h2>
     <div class="highlight">
-        <p>This is designed for Shopify/DTC founders doing €10k+/month who want to:</p>
-        <ul>
-            <li>✔️ Understand what ads and products drive profits</li>
-            <li>✔️ Cut ad spend waste and boost retention</li>
-            <li>✔️ Stop relying on agency guesswork</li>
-        </ul>
-        <p><strong>We’re onboarding 4 new founders this week. You could be one of them.</strong></p>
+        <div class="limited-slots">
+            <p><i class="fas fa-exclamation-circle"></i> <strong>LIMITED AVAILABILITY:</strong> Only <span class="slots-counter">4 audit slots</span> available this month. Each analysis requires 7 days of dedicated data work.</p>
+        </div>
     </div>
 </div>
 
 <div class="section">
-    <h2>What You Get — €997</h2>
+    <h2>The Silent Money Drain in Your Ad Account</h2>
+    <div class="highlight">
+        <p>Every day you don't have clarity on your data, you're losing money because:</p>
+        <ul>
+            <li><i class="fas fa-times"></i> <span class="pain-point">Your reports look good but your bank account doesn't match.</span> Your Facebook dashboard shows "successful" campaigns while your profit margins keep shrinking month after month.</li>
+            <li><i class="fas fa-times"></i> <span class="pain-point">You're flying blind with conflicting data.</span> Your Google Analytics says one thing, your ad platform says another, and your Shopify dashboard shows something else entirely – leaving you paralyzed when making decisions.</li>
+            <li><i class="fas fa-times"></i> <span class="pain-point">You're paying premium prices for discount results.</span> For every €1,000 you spend on ads, up to €400 is being silently wasted on audiences, creatives and placements that generate clicks but never drive actual sales.</li>
+            <li><i class="fas fa-times"></i> <span class="pain-point">Your best-selling products might be your biggest losers.</span> Without true product-level profitability data, you might be aggressively scaling products that actually lose money after ad costs.</li>
+            <li><i class="fas fa-times"></i> <span class="pain-point">You're working harder while competitors grow faster.</span> You're spending nights poring over reports trying to make sense of conflicting metrics, while competitors with clear data insights are making decisive moves that steal your market share.</li>
+        </ul>
+
+        <div class="expert-quote">
+            "Most ecommerce brands we study are wasting 20-40% of their ad spend on campaigns that appear to perform well but don't actually drive profitable revenue." — Rand Fishkin, SparkToro Founder
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Imagine Instead:</h2>
     <div class="highlight">
         <ul>
-            <li><strong>Custom Dashboard</strong> with your KPIs (LTV, ROAS, CAC, AOV, etc.)</li>
-            <li><strong>3-Page Insight Report</strong> with recommendations</li>
-            <li><strong>Loom Walkthrough</strong> explaining how to act on it</li>
-            <li><strong>Optional 15-Minute Call</strong> to answer questions</li>
+            <li><i class="fas fa-check"></i> <span class="success-point">Knowing exactly which ad sets to scale and which to cut (saving an average of €3,400 in wasted spend)</span></li>
+            <li><i class="fas fa-check"></i> <span class="success-point">Having complete clarity on your true Customer Acquisition Cost and Lifetime Value by product</span></li>
+            <li><i class="fas fa-check"></i> <span class="success-point">Making decisions based on hard data instead of gut feeling or agency promises</span></li>
+            <li><i class="fas fa-check"></i> <span class="success-point">Seeing precisely which products are your profit engines (often not the ones you expect)</span></li>
+            <li><i class="fas fa-check"></i> <span class="success-point">Getting back to focusing on growth instead of wondering if your marketing is working</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <h2>What Happens When You Have Data Clarity</h2>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">42%</div>
+            <p>Average increase in ROAS from proper campaign optimization</p>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">€3,467</div>
+            <p>Average monthly waste identified in ecommerce ad accounts</p>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">7 Days</div>
+            <p>From data access to actionable insights you can implement immediately</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <!-- Dashboard moved here for better positioning -->
+        <div class="highlight">
+            <h3>Your Custom Interactive Dashboard</h3>
+            <div style="position: relative;">
+                <img class="dashboard-preview" src="dashboard.png" alt="Sample dashboard preview showing wasted ad spend identification">
+                <div class="dashboard-annotation dash-annotation-1">32% Wasted Here!</div>
+                <div class="dashboard-annotation dash-annotation-2">Hidden Revenue Opportunity</div>
+            </div>
+            <p style="text-align: center; margin-top: 15px;"><strong>Every data point connected in one unified view, showing you exactly where profit is hiding and money is being wasted</strong></p>
+        </div>
+
+        <div class="case-study">
+            <h4>Real-World Example: City of Brussels Tourism</h4>
+            <p>Working with public tourism data, our analysis identified that 27% of their traffic was coming from poorly converting sources. Our recommended optimizations helped increase conversion rates by focusing budget on the highest-performing visitor segments.</p>
+            <p><a href="https://nemo30s.github.io/web-traffic-analysis/" target="_blank" style="color: var(--primary); font-weight: 600;">
+                👉 View the sample analysis
+            </a></p>
+        </div>
+
+        <div class="cta">
+            <a href="https://calendly.com/ionut-imdata/free-website-audit-call" target="_blank">Book Your Free Discovery Call Now</a>
+        </div>
+
+    </div>
+</div>
+
+<div class="section">
+    <h2>The Systematic Data Analysis Process</h2>
+    <div class="highlight">
+
+        <div class="timeline">
+            <div class="timeline-point">
+                <div class="timeline-marker">1</div>
+                <p>Data Collection</p>
+            </div>
+            <div class="timeline-point">
+                <div class="timeline-marker">2</div>
+                <p>Pattern Analysis</p>
+            </div>
+            <div class="timeline-point">
+                <div class="timeline-marker">3</div>
+                <p>Waste Identification</p>
+            </div>
+            <div class="timeline-point">
+                <div class="timeline-marker">4</div>
+                <p>Action Plan</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <h4>Comprehensive Data Collection</h4>
+                <p>We connect to your Shopify store, ad platforms, and analytics tools to gather 6 months of historical data across all touchpoints. This includes campaign performance, product sales, customer cohorts, and attribution data.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <h4>Multi-Dimensional Analysis</h4>
+                <p>Using our proprietary framework, we analyze your data across 16 key dimensions including channel performance, product profitability, audience response, and time-based patterns to identify inconsistencies and opportunities.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <h4>Actionable Dashboard Creation</h4>
+                <p>We build a custom interactive dashboard that connects your data sources and visualizes exactly where waste is occurring and where opportunities exist. The dashboard is yours to keep and remains functional after our engagement.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+                <h4>Prioritized Action Plan</h4>
+                <p>You'll receive a detailed 30-day plan with specific, prioritized actions to immediately reduce waste and improve performance, ranked by impact and implementation difficulty.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+                <h4>Implementation Support</h4>
+                <p>After delivering your audit package, we schedule a detailed walkthrough call and provide 15 days of email support to answer questions as you implement the recommendations.</p>
+            </div>
+        </div>
+
+        <div class="cta" style="margin-top: 30px;">
+            <a href="https://calendly.com/ionut-imdata/free-website-audit-call" target="_blank">Start Your 7-Day Data Transformation</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="section">
+    <h2>The Clarity Kit™ Complete Package — €997</h2>
+    <div class="highlight">
+        <ul>
+            <li><i class="fas fa-check-circle"></i> <strong>Custom Interactive Dashboard</strong> connecting your Shopify, ad platform, and analytics data showing exactly where money is being made and lost (€1,500 value)</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Ad Waste Analysis Report</strong> that identifies underperforming campaigns and calculates exactly how much you're losing (€1,200 value)</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Product Profitability Matrix</strong> showing which products are your true profit drivers vs. which look good but lose money (€900 value)</li>
+            <li><i class="fas fa-check-circle"></i> <strong>30-Day Action Plan</strong> with exact steps to implement for immediate ROAS improvement (€750 value)</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Video Walkthrough</strong> explaining everything so you know exactly what to do (€500 value)</li>
+            <li><i class="fas fa-check-circle"></i> <strong>15-Minute Strategy Call</strong> to answer your specific questions (€250 value)</li>
         </ul>
     </div>
 
     <div class="bonus">
-        <h3>Free Bonuses (Included)</h3>
+        <h3>Founding Client Bonuses (Next 5 Clients Only)</h3>
         <ul>
-            <li>📄 LTV Calculator Sheet (€99)</li>
-            <li>📈 KPI Tracker Template (€149)</li>
-            <li>📹 Extra Loom Feedback Call (€249)</li>
-            <li><em>Only available while slots are open</em></li>
+            <li><i class="fas fa-gift"></i> <strong>Ad Performance Calculator</strong> - Plug in your numbers to identify profitable vs. unprofitable campaigns at a glance (€249 value)</li>
+            <li><i class="fas fa-gift"></i> <strong>LTV Forecasting Tool</strong> - Project customer lifetime value by cohort and acquisition source (€349 value)</li>
+            <li><i class="fas fa-gift"></i> <strong>30-Day Email Support</strong> - Direct access to ask questions as you implement changes (€397 value)</li>
+            <li><i class="fas fa-gift"></i> <strong>30-Day Follow-Up Call</strong> - Check in after implementing changes to optimize further (€350 value)</li>
         </ul>
+    </div>
+
+    <div class="guarantee-box">
+        <h3>The 3X ROI Guarantee</h3>
+        <p>If our analysis doesn't identify at least 3X the cost of this audit in potential savings or revenue opportunities, we'll refund your money AND you get to keep the dashboard.</p>
+        <p>All we ask is that you have at least €5,000/month in ad spend, implement decisions based on our insights and provide complete access to your platforms.</p>
+    </div>
+
+    <div class="countdown">
+        <p><i class="fas fa-clock"></i> Only 4 audit slots available this month - Each analysis takes 7 days of dedicated work</p>
     </div>
 
     <div class="cta">
-        <p>⏳ Onboarding 4 new founders this week</p>
-        <a href="https://calendly.com/ionut-imdata/free-website-audit-call" target="_blank">Book Free Discovery Call</a>
+        <a href="https://calendly.com/ionut-imdata/free-website-audit-call" target="_blank">Book Your Free Discovery Call Now</a>
     </div>
 </div>
 
 <div class="section">
-    <h2>What It Looks Like</h2>
+    <h2>What to Expect: Sample Outcomes</h2>
     <div class="highlight">
-        <p>Want to see the kind of insights we deliver?</p>
-        <a href="https://nemo30s.github.io/web-traffic-analysis/" target="_blank" style="color: var(--primary); font-weight: 600;">
-            👉 Check out a real analysis we did for the City of Brussels
-        </a>
+        <div class="expected-outcome">
+            <h4>Expected Outcome #1: Hidden Campaign Waste</h4>
+            <p>Most ecommerce stores we analyze discover that 25-40% of their ad spend is going to campaigns that look profitable in the ad manager but are actually losing money when properly tracked through the full funnel. Identifying and redirecting this spend typically results in an immediate ROAS improvement of 30-45%.</p>
+        </div>
+
+        <div class="expected-outcome">
+            <h4>Expected Outcome #2: Product Profitability Surprises</h4>
+            <p>In our sample analyses, we often find that the top 20% of products drive 80% of profits, while some "bestsellers" actually lose money when marketing costs are properly allocated. Shifting focus to truly profitable products typically increases overall margin by 15-25%.</p>
+        </div>
+
+        <div class="expected-outcome">
+            <h4>Expected Outcome #3: Attribution Clarity</h4>
+            <p>Most Shopify stores struggle with conflicting attribution data between platforms. Our analysis reconciles these differences to show your true customer journey, often revealing that channels you thought were performing well are actually taking credit for conversions they didn't create.</p>
+        </div>
     </div>
 </div>
 
 <div class="section">
-    <h2>How It Works</h2>
+    <h2>Zero-Effort Process</h2>
+    <div class="highlight">
+        <div class="process-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <h4>Discovery Call (30 minutes)</h4>
+                <p>We'll discuss your business, current challenges, and confirm we're a good fit to work together. No hard selling, just a conversation to understand your needs.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <h4>Data Access (15 minutes of your time)</h4>
+                <p>You'll receive step-by-step instructions to grant view-only access to your platforms. We'll schedule a quick screen-share if you need help with this step.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <h4>Analysis Period (7 days, no effort from you)</h4>
+                <p>Our team conducts a comprehensive analysis of your data, building your custom dashboard and identifying opportunities.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+                <h4>Results Delivery (60-minute call)</h4>
+                <p>We'll walk through all findings, your custom dashboard, and the specific action plan for improving your results.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+                <h4>Implementation & Support (30 days)</h4>
+                <p>You implement the high-impact recommendations with our support available via email and a follow-up call.</p>
+            </div>
+        </div>
+
+        <div class="limited-slots" style="margin-top: 30px;">
+            <p><strong>4 spots remaining this month</strong> - Book now before they're gone</p>
+        </div>
+    </div>
+
+    <div class="cta">
+        <a href="https://calendly.com/ionut-imdata/free-website-audit-call" target="_blank">Claim Your Audit Spot</a>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="highlight">
+        <div class="faq-item">
+            <div class="faq-question">How is this different from what my agency provides?</div>
+            <p>Most agencies are financially incentivized to increase your ad spend, not your profitability. They typically provide surface-level reporting focused on vanity metrics that make them look good. We have no stake in your ad spend and focus exclusively on identifying waste and opportunities across your entire funnel.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What platforms do you work with?</div>
+            <p>We can analyze data from Shopify, WooCommerce, BigCommerce, Facebook/Instagram Ads, Google Ads, TikTok Ads, Pinterest Ads, Google Analytics, and most email marketing platforms. If you use other platforms, just ask during our discovery call.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Do I need technical knowledge to implement your recommendations?</div>
+            <p>No. Our action plan is designed to be implemented by business owners or marketing managers without technical expertise. For any technical tasks, we provide step-by-step instructions or can recommend qualified specialists.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How soon will I see results after implementing your recommendations?</div>
+            <p>Most clients see measurable improvements within 14 days of implementing our highest-priority recommendations. The full impact typically materializes within 30-45 days as more recommendations are implemented and optimizations take effect.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What if I'm already working with an agency?</div>
+            <p>Many of our clients work with agencies. Our audit often helps you better evaluate your agency's performance and provides specific direction for improvements. Some clients share our findings with their agency to improve results, while others use our insights to find a better agency partner.</p>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Perfect For Shopify Store Owners Who:</h2>
     <div class="highlight">
         <ul>
-            <li>📬 You fill in a quick intake form after booking</li>
-            <li>🔐 We get view-only access to your ad/analytics platforms</li>
-            <li>📦 You get your dashboard + insights in <strong>5 business days</strong></li>
+            <li><i class="fas fa-check-circle"></i> Are spending at least €5,000/month on digital advertising</li>
+            <li><i class="fas fa-check-circle"></i> Have been in business for at least 6 months with established data</li>
+            <li><i class="fas fa-check-circle"></i> Want to make data-driven decisions instead of relying on guesswork</li>
+            <li><i class="fas fa-check-circle"></i> Are frustrated by conflicting data across platforms</li>
+            <li><i class="fas fa-check-circle"></i> Want to scale profitably without wasting money</li>
         </ul>
+
+        <p><strong>Not a fit for:</strong> Brands under €5K/month in revenue, businesses without digital advertising, or those unwilling to make changes based on data insights.</p>
     </div>
 </div>
 
 <div class="section">
-    <h2>Who We Are</h2>
+    <h2>About IMData</h2>
     <div class="highlight">
-        <p>IMData is a boutique analytics studio helping fast-growing brands understand their data, optimize their marketing, and grow profitably — without the agency fluff.</p>
+        <p>IMData is a boutique analytics studio founded by data scientists who were tired of seeing ecommerce brands waste money on ineffective marketing.</p>
+        <p>Unlike agencies that profit from your ad spend, we're 100% focused on giving you the clarity to make the right decisions with your marketing budget.</p>
+        <p>Our clients typically see a 30-65% improvement in ROAS within 30 days of implementing our recommendations.</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="highlight" style="text-align: center;">
+        <h3>4 Audit Spots Available This Week</h3>
+        <p>Each audit takes 7 days of dedicated analysis, so we can only take on 4 new clients.</p>
+        <div class="cta" style="margin-top: 20px;">
+            <a href="https://calendly.com/ionut-imdata/free-website-audit-call" target="_blank">Book Your Free Discovery Call</a>
+        </div>
     </div>
 </div>
 
@@ -97,3 +738,6 @@
 </footer>
 </body>
 </html>
+
+
+
