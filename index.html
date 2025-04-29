@@ -1,743 +1,939 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IMData | Find €3,400+ In Wasted Ad Spend Within 7 Days | Clarity Kit™</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMData | The Clarity Kit™ for Shopify Brands</title>
     <style>
         :root {
             --primary: #4361ee;
-            --accent: #4cc9f0;
-            --dark: #111;
-            --light: #f9f9f9;
-            --warning: #ff4d4f;
-            --success: #52c41a;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #2ecc71;
         }
 
-        .logo:hover {
-            transform: translateY(-5px);
-        }
-
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: white;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .logo-text .im,
-        .logo-text .ata {
-            color: white;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        .logo-text .d {
-            color: var(--accent);
-        }
-        .logo-icon {
-            margin-left: 8px;
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             margin: 0;
-            background: var(--light);
+            padding: 0;
             color: var(--dark);
+            line-height: 1.6;
+            background-color: #f8f9fa;
         }
-        header {
-            background: linear-gradient(to right, #4361ee, #3a0ca3);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 3rem;
-            margin: 0 0 20px;
-        }
-        header p {
-            font-size: 1.2rem;
-            max-width: 760px;
+
+        /* Global Styles */
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-        }
-        .section {
-            max-width: 960px;
-            margin: 60px auto;
             padding: 0 20px;
         }
-        .section h2 {
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
             font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        .highlight {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        .highlight ul {
-            list-style: none;
-            padding: 0;
-        }
-        .highlight ul li {
-            margin-bottom: 15px;
-        }
-        .highlight strong {
             color: var(--primary);
         }
-        .cta {
-            text-align: center;
-            margin-top: 60px;
+
+        p {
+            margin-bottom: 1.5rem;
         }
-        .cta a {
-            background: var(--primary);
-            color: white;
-            padding: 18px 32px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: background 0.3s ease;
-            font-size: 1.2rem;
+
+        .btn {
             display: inline-block;
-        }
-        .cta a:hover {
-            background: #2a48db;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
-        }
-        .footer {
-            text-align: center;
-            font-size: 0.9rem;
-            color: #aaa;
-            padding: 40px 20px;
-        }
-        .bonus {
-            background: #fff9f2;
-            padding: 20px;
-            margin-top: 40px;
-            border-left: 4px solid var(--primary);
-        }
-        .testimonial {
-            background: #f5f9ff;
-            padding: 25px;
-            border-radius: 8px;
-            margin: 30px 0;
-            position: relative;
-        }
-        .testimonial:before {
-            content: '"';
-            font-size: 60px;
-            color: rgba(67, 97, 238, 0.1);
-            position: absolute;
-            top: -15px;
-            left: 10px;
-        }
-        .testimonial-content {
-            padding-left: 15px;
-            font-style: italic;
-        }
-        .testimonial-author {
-            font-weight: 600;
-            margin-top: 15px;
-            display: block;
-            text-align: right;
-        }
-        .result-box {
-            border: 2px solid #e8eaf6;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            display: flex;
-            align-items: center;
-        }
-        .result-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-right: 20px;
-        }
-        .countdown {
-            background: #ffe8e8;
-            color: var(--warning);
-            padding: 15px;
-            border-radius: 6px;
-            font-weight: 600;
-            text-align: center;
-            margin: 30px 0;
-        }
-        .guarantee-box {
-            border: 2px dashed var(--primary);
-            padding: 25px;
-            border-radius: 8px;
-            margin: 30px 0;
-            text-align: center;
-        }
-        .guarantee-box h3 {
-            color: var(--primary);
-            margin-top: 0;
-        }
-        .pain-point {
-            color: var(--warning);
-            font-weight: 600;
-        }
-        .success-point {
-            color: var(--success);
-            font-weight: 600;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        .stat-card {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin: 10px 0;
-        }
-        .limited-slots {
-            background: #f5f5f5;
-            padding: 12px;
-            border-radius: 6px;
-            text-align: center;
-            margin: 20px 0;
-            border: 1px solid #ddd;
-        }
-        .slots-counter {
-            font-weight: 700;
-            color: var(--warning);
-        }
-        .highlight li i {
-            color: var(--success);
-            margin-right: 8px;
-        }
-        .case-study {
-            border-left: 4px solid var(--primary);
-            padding-left: 20px;
-            margin: 30px 0;
-        }
-        .case-study h4 {
-            margin-top: 0;
-            color: var(--primary);
-        }
-        .founding-client {
-            background: white;
-            border: 1px solid var(--primary);
-            border-radius: 10px;
-            color: var(--primary);
-            font-weight: 600;
-            padding: 20px;
-            margin: 30px 0;
-            text-align: center;
-        }
-        .founding-client h3 {
-            color: var(--primary);
-            margin-top: 0;
-        }
-        .process-step {
-            display: flex;
-            margin-bottom: 25px;
-            align-items: flex-start;
-        }
-        .step-number {
-            background: var(--primary);
+            background-color: var(--primary);
             color: white;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #2c4ddb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-large {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            height: 60px; /* Fixed height for header */
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 15px;
-            flex-shrink: 0;
+            height: 100%;
         }
-        .step-content {
-            flex: 1;
+
+        .logo span {
+            color: var(--dark);
         }
-        .step-content h4 {
-            margin-top: 0;
-            margin-bottom: 10px;
+
+        nav {
+            height: 100%;
+            display: flex;
+            align-items: center;
         }
-        .faq-item {
-            margin-bottom: 25px;
-        }
-        .faq-question {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-        .expected-outcome {
-            background: #f0f9ff;
-            border-left: 4px solid var(--accent);
-            padding: 20px;
-            margin: 20px 0;
-        }
-        .expert-quote {
-            font-style: italic;
-            color: #555;
-            border-left: 3px solid #ccc;
-            padding-left: 15px;
-            margin: 20px 0;
-        }
-        .highlight {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        .highlight ul {
+
+        nav ul {
+            display: flex;
             list-style: none;
             padding: 0;
+            margin: 0;
+            gap: 30px; /* Fixed spacing between nav items */
+            align-items: center;
+            height: 100%;
         }
-        .highlight ul li {
-            margin-bottom: 15px;
+
+        nav ul li {
+            margin: 0; /* Removed individual margins */
         }
-        .highlight strong {
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            white-space: nowrap; /* Prevents items from wrapping */
+        }
+
+        nav ul li a:hover {
             color: var(--primary);
         }
-        .dashboard-preview {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            margin: 30px auto;
-            max-width: 700px;
-            width: 100%;
-            height: auto;
-            max-height: 360px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-            display: block;
+
+        /* Hero Section */
+        .hero {
+            background-color: white;
+            padding: 80px 0;
             position: relative;
-        }
-        .dashboard-annotation {
-            position: absolute;
-            background: rgba(255, 77, 79, 0.9);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        .dash-annotation-1 {
-            top: 20%;
-            left: 25%;
-        }
-        .dash-annotation-2 {
-            bottom: 30%;
-            right: 15%;
+            overflow: hidden;
         }
 
-        .about-founder {
+        .hero-content {
             display: flex;
             align-items: center;
-            margin: 30px 0;
-        }
-
-
-        .founder-bio h4 {
-            margin-top: 0;
-        }
-        .timeline {
-            display: flex;
-            margin: 40px 0;
             justify-content: space-between;
         }
-        .timeline-point {
-            text-align: center;
-            flex: 1;
-            position: relative;
+
+        .hero-text {
+            flex: 0 0 50%;
         }
-        .timeline-point:not(:last-child):after {
-            content: "";
-            position: absolute;
-            height: 2px;
-            background: #ddd;
-            width: 100%;
-            top: 25px;
-            left: 50%;
-            z-index: -1;
+
+        .hero-image {
+            flex: 0 0 45%;
         }
-        .timeline-marker {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card {
             background: white;
-            border: 2px solid var(--primary);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(67, 97, 238, 0.1);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px;
+            margin-bottom: 20px;
+        }
+
+        .service-icon i {
+            color: var(--primary);
+            font-size: 24px;
+        }
+
+        /* Results Section */
+        .results {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .result-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .result-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* Case Study Section */
+        .case-study {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .case-content {
+            margin-top: 40px;
+            display: flex;
+            gap: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .case-image {
+            flex: 1 1 40%;
+            position: relative;
+            overflow: hidden;
+            min-height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light);
+        }
+
+        .case-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .case-image .dashboard-preview {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dashboard-preview .preview-badge {
+            background-color: rgba(67, 97, 238, 0.9);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .case-details {
+            flex: 1 1 60%;
+            padding: 40px;
+            overflow: auto;
+        }
+
+        .case-details h3 {
+            color: var(--primary);
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .case-details h3:first-child {
+            margin-top: 0;
+        }
+
+        .case-details ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .case-details ul li {
+            margin-bottom: 10px;
+        }
+
+        .case-details .btn {
+            margin-top: 20px;
+        }
+
+        /* Dashboard Images Gallery */
+        .dashboard-thumbs {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .dashboard-thumb {
+            width: 80px;
+            height: 60px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .dashboard-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .process-steps {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .process-step {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background-color: white;
+        }
+        .btn-small {
+            padding: 8px 18px;
+            font-size: 0.9rem;
+        }
+
+        .pricing-card {
+            background: #f8f9fa;
+            max-width: 700px;
+            margin: 40px auto 0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 24px rgba(67, 97, 238, 0.15);
+            text-align: center;
+            border: 2px solid var(--primary);
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 20px 0;
+            color: var(--primary);
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+        }
+
+        .price span {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-left: 5px;
+            color: var(--gray);
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
             font-weight: bold;
+        }
+
+        /* Guarantee Section */
+        .guarantee {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .guarantee-badge {
+            width: 150px;
+            height: 150px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-align: center;
+            line-height: 1.2;
+            padding: 20px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: var(--primary);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .cta .btn {
+            background-color: white;
             color: var(--primary);
         }
+
+        .cta .btn:hover {
+            background-color: var(--light);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .calendly-container {
+            max-width: 700px;
+            margin: 40px auto 0;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .calendly-inline-widget {
+            min-width: 320px;
+            height: 700px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-logo span {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Floating CTA Button */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50px;
+            padding: 15px 25px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .floating-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(67, 97, 238, 0.4);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+
+            .hero-text, .hero-image {
+                flex: 0 0 100%;
+            }
+
+            .hero-text {
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.7rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                height: auto;
+            }
+
+            .logo {
+                height: auto;
+                margin-bottom: 15px;
+            }
+
+            nav {
+                height: auto;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+                height: auto;
+            }
+
+            .feature-card, .service-card {
+                padding: 20px;
+            }
+
+            .case-content {
+                flex-direction: column;
+            }
+
+            .case-image, .case-details {
+                flex: 0 0 100%;
+            }
+
+            .case-image {
+                min-height: 300px; /* Increased minimum height for better display */
+            }
+
+            /* Ensure the dashboard preview is fully visible on mobile */
+            .case-image .dashboard-preview {
+                padding: 20px 10px;
+            }
+
+            .dashboard-thumbs {
+                margin-bottom: 15px; /* Extra space before the badge */
+            }
+        }
     </style>
-    <link rel="icon" href="favicon%20(1).ico" type="image/x-icon" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body id="top">
+<!-- Header -->
 <header>
-    <!-- Logo Centered at Top -->
-    <div class="logo" style="margin-bottom: 40px;">
-        <div class="logo-text" style="justify-content: center;">
-            <span class="im">IM</span><span class="d">D</span><span class="ata">ata</span>
-            <span class="logo-icon"><i class="fas fa-chart-line"></i></span>
+    <div class="container">
+        <div class="header-content">
+            <a href="#top" class="logo"><span>IM</span>D<span>ata</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#process">How It Works</a></li>
+                    <li><a href="#case-study">Case Study</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact" class="btn">Book Free Audit</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
-
-    <!-- Main Offer Title -->
-    <h1>Find €3,400+ In Wasted Ad Spend In 7 Days</h1>
-    <p><strong>The Clarity Kit™</strong> custom data audit helps Shopify brands identify exactly where your marketing budget is being wasted, what products actually drive profit, and creates a clear action plan to boost ROAS by 30-65% in the next 30 days.</p>
-
-
-    <div class="cta" style="margin-top: 30px;">
-        <a href="https://calendly.com/ionut-imdata/free-website-audit-call" target="_blank">Claim Your Audit Spot Now</a>
     </div>
 </header>
 
-<div class="section">
-    <div class="highlight">
-        <div class="limited-slots">
-            <p><i class="fas fa-exclamation-circle"></i> <strong>LIMITED AVAILABILITY:</strong> Only <span class="slots-counter">4 audit slots</span> available this month. Each analysis requires 7 days of dedicated data work.</p>
-        </div>
-    </div>
-</div>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Boost Your Shopify Store's ROAS by 30-65% in Just 30 Days</h1>
+                <p>
+                    The Clarity Kit™ helps Shopify brands find wasted ad spend, spot their most profitable products, and build a 30-day action plan to grow smarter.
+                </p>
+                <a href="#contact" class="btn btn-large">Get Your Free Audit Today</a>
 
-<div class="section">
-    <h2>The Silent Money Drain in Your Ad Account</h2>
-    <div class="highlight">
-        <p>Every day you don't have clarity on your data, you're losing money because:</p>
-        <ul>
-            <li><i class="fas fa-times"></i> <span class="pain-point">Your reports look good but your bank account doesn't match.</span> Your Facebook dashboard shows "successful" campaigns while your profit margins keep shrinking month after month.</li>
-            <li><i class="fas fa-times"></i> <span class="pain-point">You're flying blind with conflicting data.</span> Your Google Analytics says one thing, your ad platform says another, and your Shopify dashboard shows something else entirely – leaving you paralyzed when making decisions.</li>
-            <li><i class="fas fa-times"></i> <span class="pain-point">You're paying premium prices for discount results.</span> For every €1,000 you spend on ads, up to €400 is being silently wasted on audiences, creatives and placements that generate clicks but never drive actual sales.</li>
-            <li><i class="fas fa-times"></i> <span class="pain-point">Your best-selling products might be your biggest losers.</span> Without true product-level profitability data, you might be aggressively scaling products that actually lose money after ad costs.</li>
-            <li><i class="fas fa-times"></i> <span class="pain-point">You're working harder while competitors grow faster.</span> You're spending nights poring over reports trying to make sense of conflicting metrics, while competitors with clear data insights are making decisive moves that steal your market share.</li>
-        </ul>
-
-        <div class="expert-quote">
-            "Most ecommerce brands we study are wasting 20-40% of their ad spend on campaigns that appear to perform well but don't actually drive profitable revenue." — Rand Fishkin, SparkToro Founder
-        </div>
-    </div>
-</div>
-
-<div class="section">
-    <h2>Imagine Instead:</h2>
-    <div class="highlight">
-        <ul>
-            <li><i class="fas fa-check"></i> <span class="success-point">Knowing exactly which ad sets to scale and which to cut (saving an average of €3,400 in wasted spend)</span></li>
-            <li><i class="fas fa-check"></i> <span class="success-point">Having complete clarity on your true Customer Acquisition Cost and Lifetime Value by product</span></li>
-            <li><i class="fas fa-check"></i> <span class="success-point">Making decisions based on hard data instead of gut feeling or agency promises</span></li>
-            <li><i class="fas fa-check"></i> <span class="success-point">Seeing precisely which products are your profit engines (often not the ones you expect)</span></li>
-            <li><i class="fas fa-check"></i> <span class="success-point">Getting back to focusing on growth instead of wondering if your marketing is working</span></li>
-        </ul>
-    </div>
-</div>
-
-<div class="section">
-    <h2>What Happens When You Have Data Clarity</h2>
-    <div class="stats-grid">
-        <div class="stat-card">
-            <div class="stat-number">42%</div>
-            <p>Average increase in ROAS from proper campaign optimization</p>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">€3,467</div>
-            <p>Average monthly waste identified in ecommerce ad accounts</p>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">7 Days</div>
-            <p>From data access to actionable insights you can implement immediately</p>
-        </div>
-    </div>
-
-    <div class="section">
-        <!-- Dashboard moved here for better positioning -->
-        <div class="highlight">
-            <h3>Your Custom Interactive Dashboard</h3>
-            <div style="position: relative;">
-                <img class="dashboard-preview" src="dashboard.png" alt="Sample dashboard preview showing wasted ad spend identification">
-                <div class="dashboard-annotation dash-annotation-1">32% Wasted Here!</div>
-                <div class="dashboard-annotation dash-annotation-2">Hidden Revenue Opportunity</div>
             </div>
-            <p style="text-align: center; margin-top: 15px;"><strong>Every data point connected in one unified view, showing you exactly where profit is hiding and money is being wasted</strong></p>
-        </div>
-
-        <div class="case-study">
-            <h4>Real-World Example: City of Brussels Tourism</h4>
-            <p>Working with public tourism data, our analysis identified that 27% of their traffic was coming from poorly converting sources. Our recommended optimizations helped increase conversion rates by focusing budget on the highest-performing visitor segments.</p>
-            <p><a href="https://nemo30s.github.io/web-traffic-analysis/" target="_blank" style="color: var(--primary); font-weight: 600;">
-                👉 View the sample analysis
-            </a></p>
-        </div>
-
-        <div class="cta">
-            <a href="https://calendly.com/ionut-imdata/free-website-audit-call" target="_blank">Book Your Free Discovery Call Now</a>
-        </div>
-
-    </div>
-</div>
-
-<div class="section">
-    <h2>The Systematic Data Analysis Process</h2>
-    <div class="highlight">
-
-        <div class="timeline">
-            <div class="timeline-point">
-                <div class="timeline-marker">1</div>
-                <p>Data Collection</p>
-            </div>
-            <div class="timeline-point">
-                <div class="timeline-marker">2</div>
-                <p>Pattern Analysis</p>
-            </div>
-            <div class="timeline-point">
-                <div class="timeline-marker">3</div>
-                <p>Waste Identification</p>
-            </div>
-            <div class="timeline-point">
-                <div class="timeline-marker">4</div>
-                <p>Action Plan</p>
+            <div class="hero-image">
+                <img src="dashboard.png" alt="Data Analysis Dashboard">
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="process-step">
-            <div class="step-number">1</div>
-            <div class="step-content">
-                <h4>Comprehensive Data Collection</h4>
-                <p>We connect to your Shopify store, ad platforms, and analytics tools to gather 6 months of historical data across all touchpoints. This includes campaign performance, product sales, customer cohorts, and attribution data.</p>
+<!-- Problems Section -->
+<section class="services" id="services">
+    <div class="container">
+        <h2>Are These Shopify Challenges Hurting Your Business?</h2>
+        <p>Most e-commerce brands are facing the same critical issues that are silently draining profits.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3>Wasting Marketing Budget</h3>
+                <p>You're spending thousands on ads but can't pinpoint which campaigns are actually generating profit vs. just creating noise.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Declining ROAS</h3>
+                <p>Your return on ad spend is dropping while CPAs keep rising, squeezing your margins thinner by the day.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <h3>Data Confusion</h3>
+                <p>You're drowning in metrics from multiple platforms but struggle to connect the dots into actionable insights.</p>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="process-step">
-            <div class="step-number">2</div>
-            <div class="step-content">
-                <h4>Multi-Dimensional Analysis</h4>
-                <p>Using our proprietary framework, we analyze your data across 16 key dimensions including channel performance, product profitability, audience response, and time-based patterns to identify inconsistencies and opportunities.</p>
+<!-- Results Section -->
+<section class="results" id="results">
+    <div class="container">
+        <h2>Real Results for Shopify Brands</h2>
+        <p>Our data-driven approach delivers measurable improvement where it matters most.</p>
+
+        <div class="results-grid">
+            <div class="result-card">
+                <div class="result-number">42%</div>
+                <h3>Average ROAS Increase</h3>
+                <p>Within the first 30 days after implementing our action plan</p>
+            </div>
+
+            <div class="result-card">
+                <div class="result-number">29%</div>
+                <h3>Reduced Ad Waste</h3>
+                <p>By identifying and eliminating underperforming campaigns and products</p>
+            </div>
+
+            <div class="result-card">
+                <div class="result-number">37%</div>
+                <h3>Increased AOV</h3>
+                <p>Through data-backed product bundling and cross-selling strategies</p>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="process-step">
-            <div class="step-number">3</div>
-            <div class="step-content">
-                <h4>Actionable Dashboard Creation</h4>
-                <p>We build a custom interactive dashboard that connects your data sources and visualizes exactly where waste is occurring and where opportunities exist. The dashboard is yours to keep and remains functional after our engagement.</p>
+<!-- Case Study Section -->
+<section class="case-study" id="case-study">
+    <div class="container">
+        <h2>Case Study: Brussels Government Website Analysis</h2>
+        <p>See how we transformed complex web traffic data into actionable insights</p>
+
+        <div class="case-content">
+            <div class="case-image">
+                <div class="dashboard-preview">
+                    <i class="fas fa-chart-line fa-3x" style="color: var(--primary);"></i>
+                    <h3>Interactive Dashboard</h3>
+                    <p>Comprehensive analysis of visitor behavior patterns and engagement metrics</p>
+                    <div class="dashboard-thumbs">
+                        <div class="dashboard-thumb">
+                            <img src="total-page-views.png" alt="Traffic Overview">
+                        </div>
+                        <div class="dashboard-thumb">
+                            <img src="eng-ratio.png" alt="User Engagement">
+                        </div>
+                        <div class="dashboard-thumb">
+                            <img src="active-users.png" alt="Device Analysis">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="case-details">
+                <h3>The Challenge</h3>
+                <p>The Brussels government needed to understand complex visitor behavior patterns across their website - similar to how Shopify store owners need visibility into their customer journey to optimize conversions.</p>
+
+                <h3>Our Approach</h3>
+                <p>We applied the same data analysis methodology we use for e-commerce:
+                <ul>
+                <li>Cross-platform tracking integration</li>
+                <li>User flow analysis</li>
+                <li>Engagement metrics evaluation</li>
+                <li>Conversion point identification</li>
+                </ul>
+                </p>
+
+                <h3>The Results</h3>
+                <ul>
+                    <li>Discovered that the top three pages account for approximately 38% of total traffic, with clear language preferences (French pages receiving significantly more traffic than Dutch equivalents)</li>
+                    <li>Identified distinct engagement patterns across content types, with webcam feeds showing exceptionally high engagement ratios of 55+</li>
+                    <li>Found meaningful year-over-year trends showing a 31% decrease in total page views but only an 18% decrease in active users, suggesting improved navigation efficiency</li>
+                    <li>Revealed a strong correlation coefficient of 0.92 between views and active users, indicating most pages attract new visitors rather than repeat views</li>
+                </ul>
+
+                <a href="https://nemo30s.github.io/web-traffic-analysis/" target="_blank" class="btn">View Full Case Study</a>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="process-step">
-            <div class="step-number">4</div>
-            <div class="step-content">
-                <h4>Prioritized Action Plan</h4>
-                <p>You'll receive a detailed 30-day plan with specific, prioritized actions to immediately reduce waste and improve performance, ranked by impact and implementation difficulty.</p>
+<!-- Process Section -->
+<section class="process" id="process">
+    <div class="container">
+        <h2>How The Clarity Kit™ Works</h2>
+        <p>Our proven 4-step process provides a complete roadmap to transform your Shopify store's performance.</p>
+
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Comprehensive Data Audit</h3>
+                <p>We collect and analyze data from your Shopify store, ad platforms, and analytics to create a complete picture of your business performance.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Profit Leakage Detection</h3>
+                <p>Our proprietary algorithm identifies exactly where your marketing budget is being wasted and which products are actually driving profit.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>30-Day Action Plan</h3>
+                <p>We deliver a custom roadmap with specific, prioritized steps to boost ROAS and maximize profitability within 30 days.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Implementation Support</h3>
+                <p>You get direct access to our team for questions and guidance as you implement the recommendations.</p>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="process-step">
-            <div class="step-number">5</div>
-            <div class="step-content">
-                <h4>Implementation Support</h4>
-                <p>After delivering your audit package, we schedule a detailed walkthrough call and provide 15 days of email support to answer questions as you implement the recommendations.</p>
+<!-- Pricing Section -->
+<section class="pricing" id="pricing">
+    <div class="container">
+        <h2>Simple, Transparent Pricing</h2>
+        <p>Everything you need to transform your Shopify store's performance with no hidden fees.</p>
+
+        <div class="pricing-card">
+            <h3>The Clarity Kit™ Custom Data Audit</h3>
+            <div class="price">$997<span>one-time</span></div>
+            <p>Complete data analysis and action plan for Shopify brands looking to boost ROAS by 30-65%</p>
+            <ul class="feature-list">
+                <li>Complete Shopify store performance audit</li>
+                <li>Cross-platform advertising analysis</li>
+                <li>Product profitability breakdown</li>
+                <li>Customer journey and conversion analysis</li>
+                <li>Detailed 30-day action plan with prioritized tasks</li>
+                <li>Implementation support and guidance</li>
+                <li>Follow-up strategy session after 30 days</li>
+            </ul>
+            <a href="#contact" class="btn btn-large">Get Started Now</a>
+        </div>
+    </div>
+</section>
+
+<!-- Guarantee Section -->
+<section class="guarantee">
+    <div class="container">
+        <div class="guarantee-badge">100% Satisfaction Guarantee</div>
+        <h2>Risk-Free Guarantee</h2>
+        <p>If you implement our recommendations and don't see measurable improvement in your ROAS within 30 days, we'll refund your investment in full.</p>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <h2>Ready to Stop Wasting Ad Spend and Start Growing Profitably?</h2>
+        <a href="#contact" class="btn btn-large">Book Your Free Call Now</a>
+    </div>
+</section>
+
+<!-- Contact Section with Calendly -->
+<section class="contact" id="contact">
+    <div class="container">
+        <h2>Book Your Free Discovery Call</h2>
+        <p>Schedule a time that works for you and let's discuss how we can boost your Shopify store's performance.</p>
+
+        <div class="calendly-container">
+            <!-- Calendly inline widget begin -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/ionut-imdata/free-website-audit-call"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Calendly inline widget end -->
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <a href="#" class="footer-logo"><span>IM</span>D<span>ata</span></a>
+            <p>Helping Shopify brands transform marketing data into profit with The Clarity Kit™.</p>
+            <p><a href="mailto:contact@imdata.me" style="color: #ddd;">contact@imdata.me</a></p>
+            <div class="copyright">
+                &copy; 2025 IMData. All rights reserved.
             </div>
         </div>
-
-        <div class="cta" style="margin-top: 30px;">
-            <a href="https://calendly.com/ionut-imdata/free-website-audit-call" target="_blank">Start Your 7-Day Data Transformation</a>
-        </div>
     </div>
-</div>
-
-
-<div class="section">
-    <h2>The Clarity Kit™ Complete Package — €997</h2>
-    <div class="highlight">
-        <ul>
-            <li><i class="fas fa-check-circle"></i> <strong>Custom Interactive Dashboard</strong> connecting your Shopify, ad platform, and analytics data showing exactly where money is being made and lost (€1,500 value)</li>
-            <li><i class="fas fa-check-circle"></i> <strong>Ad Waste Analysis Report</strong> that identifies underperforming campaigns and calculates exactly how much you're losing (€1,200 value)</li>
-            <li><i class="fas fa-check-circle"></i> <strong>Product Profitability Matrix</strong> showing which products are your true profit drivers vs. which look good but lose money (€900 value)</li>
-            <li><i class="fas fa-check-circle"></i> <strong>30-Day Action Plan</strong> with exact steps to implement for immediate ROAS improvement (€750 value)</li>
-            <li><i class="fas fa-check-circle"></i> <strong>Video Walkthrough</strong> explaining everything so you know exactly what to do (€500 value)</li>
-            <li><i class="fas fa-check-circle"></i> <strong>15-Minute Strategy Call</strong> to answer your specific questions (€250 value)</li>
-        </ul>
-    </div>
-
-    <div class="bonus">
-        <h3>Founding Client Bonuses (Next 5 Clients Only)</h3>
-        <ul>
-            <li><i class="fas fa-gift"></i> <strong>Ad Performance Calculator</strong> - Plug in your numbers to identify profitable vs. unprofitable campaigns at a glance (€249 value)</li>
-            <li><i class="fas fa-gift"></i> <strong>LTV Forecasting Tool</strong> - Project customer lifetime value by cohort and acquisition source (€349 value)</li>
-            <li><i class="fas fa-gift"></i> <strong>30-Day Email Support</strong> - Direct access to ask questions as you implement changes (€397 value)</li>
-            <li><i class="fas fa-gift"></i> <strong>30-Day Follow-Up Call</strong> - Check in after implementing changes to optimize further (€350 value)</li>
-        </ul>
-    </div>
-
-    <div class="guarantee-box">
-        <h3>The 3X ROI Guarantee</h3>
-        <p>If our analysis doesn't identify at least 3X the cost of this audit in potential savings or revenue opportunities, we'll refund your money AND you get to keep the dashboard.</p>
-        <p>All we ask is that you have at least €5,000/month in ad spend, implement decisions based on our insights and provide complete access to your platforms.</p>
-    </div>
-
-    <div class="countdown">
-        <p><i class="fas fa-clock"></i> Only 4 audit slots available this month - Each analysis takes 7 days of dedicated work</p>
-    </div>
-
-    <div class="cta">
-        <a href="https://calendly.com/ionut-imdata/free-website-audit-call" target="_blank">Book Your Free Discovery Call Now</a>
-    </div>
-</div>
-
-<div class="section">
-    <h2>What to Expect: Sample Outcomes</h2>
-    <div class="highlight">
-        <div class="expected-outcome">
-            <h4>Expected Outcome #1: Hidden Campaign Waste</h4>
-            <p>Most ecommerce stores we analyze discover that 25-40% of their ad spend is going to campaigns that look profitable in the ad manager but are actually losing money when properly tracked through the full funnel. Identifying and redirecting this spend typically results in an immediate ROAS improvement of 30-45%.</p>
-        </div>
-
-        <div class="expected-outcome">
-            <h4>Expected Outcome #2: Product Profitability Surprises</h4>
-            <p>In our sample analyses, we often find that the top 20% of products drive 80% of profits, while some "bestsellers" actually lose money when marketing costs are properly allocated. Shifting focus to truly profitable products typically increases overall margin by 15-25%.</p>
-        </div>
-
-        <div class="expected-outcome">
-            <h4>Expected Outcome #3: Attribution Clarity</h4>
-            <p>Most Shopify stores struggle with conflicting attribution data between platforms. Our analysis reconciles these differences to show your true customer journey, often revealing that channels you thought were performing well are actually taking credit for conversions they didn't create.</p>
-        </div>
-    </div>
-</div>
-
-<div class="section">
-    <h2>Zero-Effort Process</h2>
-    <div class="highlight">
-        <div class="process-step">
-            <div class="step-number">1</div>
-            <div class="step-content">
-                <h4>Discovery Call (30 minutes)</h4>
-                <p>We'll discuss your business, current challenges, and confirm we're a good fit to work together. No hard selling, just a conversation to understand your needs.</p>
-            </div>
-        </div>
-
-        <div class="process-step">
-            <div class="step-number">2</div>
-            <div class="step-content">
-                <h4>Data Access (15 minutes of your time)</h4>
-                <p>You'll receive step-by-step instructions to grant view-only access to your platforms. We'll schedule a quick screen-share if you need help with this step.</p>
-            </div>
-        </div>
-
-        <div class="process-step">
-            <div class="step-number">3</div>
-            <div class="step-content">
-                <h4>Analysis Period (7 days, no effort from you)</h4>
-                <p>Our team conducts a comprehensive analysis of your data, building your custom dashboard and identifying opportunities.</p>
-            </div>
-        </div>
-
-        <div class="process-step">
-            <div class="step-number">4</div>
-            <div class="step-content">
-                <h4>Results Delivery (60-minute call)</h4>
-                <p>We'll walk through all findings, your custom dashboard, and the specific action plan for improving your results.</p>
-            </div>
-        </div>
-
-        <div class="process-step">
-            <div class="step-number">5</div>
-            <div class="step-content">
-                <h4>Implementation & Support (30 days)</h4>
-                <p>You implement the high-impact recommendations with our support available via email and a follow-up call.</p>
-            </div>
-        </div>
-
-        <div class="limited-slots" style="margin-top: 30px;">
-            <p><strong>4 spots remaining this month</strong> - Book now before they're gone</p>
-        </div>
-    </div>
-
-    <div class="cta">
-        <a href="https://calendly.com/ionut-imdata/free-website-audit-call" target="_blank">Claim Your Audit Spot</a>
-    </div>
-</div>
-
-<div class="section">
-    <h2>Frequently Asked Questions</h2>
-    <div class="highlight">
-        <div class="faq-item">
-            <div class="faq-question">How is this different from what my agency provides?</div>
-            <p>Most agencies are financially incentivized to increase your ad spend, not your profitability. They typically provide surface-level reporting focused on vanity metrics that make them look good. We have no stake in your ad spend and focus exclusively on identifying waste and opportunities across your entire funnel.</p>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">What platforms do you work with?</div>
-            <p>We can analyze data from Shopify, WooCommerce, BigCommerce, Facebook/Instagram Ads, Google Ads, TikTok Ads, Pinterest Ads, Google Analytics, and most email marketing platforms. If you use other platforms, just ask during our discovery call.</p>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Do I need technical knowledge to implement your recommendations?</div>
-            <p>No. Our action plan is designed to be implemented by business owners or marketing managers without technical expertise. For any technical tasks, we provide step-by-step instructions or can recommend qualified specialists.</p>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">How soon will I see results after implementing your recommendations?</div>
-            <p>Most clients see measurable improvements within 14 days of implementing our highest-priority recommendations. The full impact typically materializes within 30-45 days as more recommendations are implemented and optimizations take effect.</p>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">What if I'm already working with an agency?</div>
-            <p>Many of our clients work with agencies. Our audit often helps you better evaluate your agency's performance and provides specific direction for improvements. Some clients share our findings with their agency to improve results, while others use our insights to find a better agency partner.</p>
-        </div>
-    </div>
-</div>
-
-<div class="section">
-    <h2>Perfect For Shopify Store Owners Who:</h2>
-    <div class="highlight">
-        <ul>
-            <li><i class="fas fa-check-circle"></i> Are spending at least €5,000/month on digital advertising</li>
-            <li><i class="fas fa-check-circle"></i> Have been in business for at least 6 months with established data</li>
-            <li><i class="fas fa-check-circle"></i> Want to make data-driven decisions instead of relying on guesswork</li>
-            <li><i class="fas fa-check-circle"></i> Are frustrated by conflicting data across platforms</li>
-            <li><i class="fas fa-check-circle"></i> Want to scale profitably without wasting money</li>
-        </ul>
-
-        <p><strong>Not a fit for:</strong> Brands under €5K/month in revenue, businesses without digital advertising, or those unwilling to make changes based on data insights.</p>
-    </div>
-</div>
-
-<div class="section">
-    <h2>About IMData</h2>
-    <div class="highlight">
-        <p>IMData is a boutique analytics studio founded by data scientists who were tired of seeing ecommerce brands waste money on ineffective marketing.</p>
-        <p>Unlike agencies that profit from your ad spend, we're 100% focused on giving you the clarity to make the right decisions with your marketing budget.</p>
-        <p>Our clients typically see a 30-65% improvement in ROAS within 30 days of implementing our recommendations.</p>
-    </div>
-</div>
-
-<div class="section">
-    <div class="highlight" style="text-align: center;">
-        <h3>4 Audit Spots Available This Week</h3>
-        <p>Each audit takes 7 days of dedicated analysis, so we can only take on 4 new clients.</p>
-        <div class="cta" style="margin-top: 20px;">
-            <a href="https://calendly.com/ionut-imdata/free-website-audit-call" target="_blank">Book Your Free Discovery Call</a>
-        </div>
-    </div>
-</div>
-
-<footer class="footer">
-    &copy; 2025 IMData. contact@imdata.me
 </footer>
+
+<!-- Floating CTA Button -->
+<a href="#contact" class="floating-cta">
+    <i class="fas fa-calendar-check"></i> Book Free Call
+</a>
+
+<!-- Simple script to handle scrolling behavior -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70, // Adjusted for header height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
-
-
-
